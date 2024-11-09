@@ -4,7 +4,7 @@ d3.csv("updated_combined_data_with_russia.csv").then(data => {
   const width = 960;
   const height = 600;
 
-  // Updated color scale using d3.interpolateBlues for stability
+  // Color scale using the blue gradient
   const colorScale = d3.scaleSequential(d3.interpolateBlues)
                         .domain([1, 5]); // assuming 1 = unstable, 5 = very stable
 
@@ -22,7 +22,7 @@ d3.csv("updated_combined_data_with_russia.csv").then(data => {
                     .style("padding", "5px")
                     .style("display", "none");
 
-  // Load a more detailed world GeoJSON data
+  // Load world GeoJSON data
   d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson").then(geoData => {
     // Draw the map
     svg.selectAll("path")
@@ -31,7 +31,7 @@ d3.csv("updated_combined_data_with_russia.csv").then(data => {
        .append("path")
        .attr("d", d3.geoPath().projection(d3.geoMercator().scale(130).translate([width / 2, height / 1.5])))
 
-       // Use the updated color scale
+       // Apply the color scale based on the StabilityEstimate
        .attr("fill", d => {
          const countryData = data.find(row => row.Country === d.properties.name);
          return countryData && countryData.StabilityEstimate ? colorScale(countryData.StabilityEstimate) : "#f0f0f0"; // gray for missing data
