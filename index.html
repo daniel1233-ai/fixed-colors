@@ -3,30 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>USA Arms Export and Political Stability Visualization</title>
+  <title>World Map and Data Visualization</title>
   <script src="https://d3js.org/d3.v6.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="title-container">
-    <h1>USA Arms Export and Political Stability Visualization</h1>
-  </div>
-  <div id="map-container">
-    <div id="map"></div>
-    <div id="color-legend">
-      <p>Political Stability Estimate</p>
-      <div class="legend-color" style="background-color: #d73027;">Unstable</div>
-      <div class="legend-color" style="background-color: #fc8d59;">Very Low</div>
-      <div class="legend-color" style="background-color: #fee08b;">Low Stability</div>
-      <div class="legend-color" style="background-color: #d9ef8b;">Moderate</div>
-      <div class="legend-color" style="background-color: #91cf60;">Stable</div>
-      <div class="legend-color" style="background-color: #1a9850;">Very Stable</div>
-      <div class="legend-color" style="background-color: #f0f0f0;">No Data</div>
+  <h1>World Arms Export and Political Stability Visualization</h1>
+  <div id="map"></div>
+  <div id="chart"></div>
+
+  <!-- Color Legend for Stability Levels -->
+  <div id="legend" style="margin-top: 20px;">
+    <h3>Political Stability Levels</h3>
+    <div>
+        <div style="display: inline-block; width: 20px; height: 20px; background-color: #d73027;"></div> Low Stability
+    </div>
+    <div>
+        <div style="display: inline-block; width: 20px; height: 20px; background-color: #fc8d59;"></div> Moderate Stability
+    </div>
+    <div>
+        <div style="display: inline-block; width: 20px; height: 20px; background-color: #fee08b;"></div> High Stability
+    </div>
+    <div>
+        <div style="display: inline-block; width: 20px; height: 20px; background-color: #1a9850;"></div> Very High Stability
+    </div>
+    <div>
+        <div style="display: inline-block; width: 20px; height: 20px; background-color: #D3D3D3;"></div> No Data Available
     </div>
   </div>
-  <div id="arms-chart"></div>
-  <div id="stability-chart"></div>
+
   <script src="script.js"></script>
 </body>
 </html>
