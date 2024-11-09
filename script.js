@@ -3,9 +3,10 @@ d3.csv("updated_combined_data_with_russia.csv").then(data => {
 
   const width = 960;
   const height = 600;
-  const colorScale = d3.scaleLinear()
-                        .domain([1, 5]) // assuming 1 = unstable, 5 = very stable
-                        .range(["#d73027", "#1a9850"]); // red to green
+
+  // Updated color scale using d3.interpolateBlues for stability
+  const colorScale = d3.scaleSequential(d3.interpolateBlues)
+                        .domain([1, 5]); // assuming 1 = unstable, 5 = very stable
 
   const svg = d3.select("#map")
                 .append("svg")
@@ -29,6 +30,8 @@ d3.csv("updated_combined_data_with_russia.csv").then(data => {
        .enter()
        .append("path")
        .attr("d", d3.geoPath().projection(d3.geoMercator().scale(130).translate([width / 2, height / 1.5])))
+
+       // Use the updated color scale
        .attr("fill", d => {
          const countryData = data.find(row => row.Country === d.properties.name);
          return countryData && countryData.StabilityEstimate ? colorScale(countryData.StabilityEstimate) : "#f0f0f0"; // gray for missing data
