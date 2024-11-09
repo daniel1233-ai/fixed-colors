@@ -14,15 +14,18 @@
   </div>
   <div id="map-container">
     <div id="map"></div>
+    <!-- Remove the static color bars and use a gradient legend instead -->
     <div id="color-legend">
       <p>Political Stability Estimate</p>
-      <div class="legend-color" style="background-color: #f7fbff;">Unstable</div>
-      <div class="legend-color" style="background-color: #deebf7;">Very Low</div>
-      <div class="legend-color" style="background-color: #c6dbef;">Low Stability</div>
-      <div class="legend-color" style="background-color: #9ecae1;">Moderate</div>
-      <div class="legend-color" style="background-color: #3182bd;">Stable</div>
-      <div class="legend-color" style="background-color: #08519c;">Very Stable</div>
-      <div class="legend-color" style="background-color: #f0f0f0;">No Data</div>
+      <svg width="200" height="20">
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color: #f7fbff; stop-opacity: 1" />
+            <stop offset="100%" style="stop-color: #08519c; stop-opacity: 1" />
+          </linearGradient>
+        </defs>
+        <rect width="200" height="20" fill="url(#gradient)" />
+      </svg>
     </div>
   </div>
   <div id="arms-chart"></div>
