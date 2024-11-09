@@ -1,41 +1,34 @@
 body {
   font-family: Arial, sans-serif;
-}
-
-.title-container {
   text-align: center;
-  margin-bottom: 20px;
-}
-
-#map-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 20px;
 }
 
 #map {
-  width: 960px;
-  height: 600px;
+  width: 80%;
+  height: 500px;
+  margin: 20px auto;
+}
+
+#chart {
+  width: 80%;
+  height: 400px;
+  margin: 20px auto;
 }
 
 #color-legend {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 0.9em;
+  justify-content: center;
   margin-top: 20px;
 }
 
-.tooltip {
-  position: absolute;
-  background-color: white;
-  border: 1px solid black;
-  padding: 5px;
-  pointer-events: none;
+#color-legend p {
+  margin: 0 10px;
 }
 
-#arms-chart, #stability-chart {
-  margin-top: 20px;
-  text-align: center;
+.color-box {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 5px;
+  border: 1px solid #000;
 }
